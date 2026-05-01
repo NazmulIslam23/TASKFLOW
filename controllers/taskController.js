@@ -42,3 +42,21 @@ exports.createTask=(req,res)=>
     );
     res.status(201).json(newTask);
 };
+exports.updateTask = (req, res) => {
+    const updated = taskModel.updateTask(req.params.id, req.body);
+    if (!updated) {
+        return res.status(404).json({ message: "Task not found" });
+    }
+    res.json(updated);
+};
+exports.deleteTask=(req,res)=>
+{
+    const deleted=taskModel.deleteTask(req.params.id);
+    if(!deleted)
+    {
+        return res.status(404).json(
+            {message:"Task not found"}
+        );
+    }
+    res.json({message:"Task Deleted"});
+}
