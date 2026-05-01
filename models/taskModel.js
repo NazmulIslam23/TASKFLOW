@@ -9,7 +9,11 @@ const addTask=(task)=>
     task.id=idCounter++;
     tasks.push(task);
     return task;
-}
+};
+const findTaskByID=(id)=>
+{
+    return tasks.find(t=>t.id==id);
+};
 module.exports={
-    getTasks,addTask
+    getTasks,addTask,findTaskByID
 };
