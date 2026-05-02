@@ -1,12 +1,12 @@
-let tasks=[];
-let idCounter=1;
-const getTasks=()=>
-{
+let tasks = [];
+let idCounter = 1;
+
+const getTasks = () => {
     return tasks;
 };
-const addTask=(task)=>
-{
-    task.id=idCounter++;
+
+const addTask = (task) => {
+    task.id = idCounter++;
     tasks.push(task);
     return task;
 };
@@ -15,7 +15,7 @@ const findTaskById = (id) => {
     return tasks.find(t => t.id == id);
 };
 
-const updateTask=(id, data)=>{
+const updateTask = (id, data) => {
     const task = findTaskById(id);
     if (!task) return null;
 
@@ -25,6 +25,7 @@ const updateTask=(id, data)=>{
 
     return task;
 };
+
 const deleteTask = (id) => {
     const index = tasks.findIndex(t => t.id == id);
     if (index === -1) return false;
@@ -33,6 +34,10 @@ const deleteTask = (id) => {
     return true;
 };
 
-module.exports={
-    getTasks,addTask,findTaskById,updateTask,deleteTask
+module.exports = {
+    getTasks,
+    addTask,
+    findTaskById,
+    updateTask,
+    deleteTask
 };
